@@ -1,0 +1,78 @@
+.page {
+    margin: 0;
+    padding: 0;
+}
+
+.calculator__title,
+.calculator__content--input,
+.math-operations__p {
+    font-family: "Open Sans", "Arial", sans-serif;
+    color: #333;
+}
+
+.position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.calculator__title {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.calculator__content {
+    height: 450px;
+    width: 600px;
+    border: 1px solid lightgray;
+}
+
+.calculator__content--input {
+    padding-left: 10px;
+    height: 50px;
+    width: 600px;
+    font-size: 24px;
+    box-sizing: border-box;
+}
+
+.calculator__content--input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.calculator__content--math-operations {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.math-operations__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+    border: 1px solid lightyellow;
+    box-sizing: border-box;
+}
+
+.math-operations__reset {
+    background-color: indianred;
+}
+
+.math-operations__plus,
+.math-operations__minus,
+.math-operations__multiplication,
+.math-operations__division {
+    background-color: lightblue;
+}
+
+.math-operations__result {
+    background-color: yellowgreen;
+}
+
+.math-operations__p {
+    margin: 0;
+    /*padding: 46% 0% 0% 46%;*/
+    font-size: 24px;
+}

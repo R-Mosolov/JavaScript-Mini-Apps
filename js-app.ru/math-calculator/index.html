@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <title>Математический калькулятор</title>
+    <link href="css/style-desktop.css" rel="stylesheet">
+    <link href="css/style-mobile.css" rel="stylesheet">
+</head>
+<body class="page position">
+    <div class="calculator container">
+        <h1 class="calculator__title">Математический калькулятор</h1>
+
+        <div class="calculator__content">
+            <div class="calculator__content--value">
+                <input class="calculator__content--input" type="number" placeholder="0">
+            </div>
+
+            <div class="calculator__content--math-operations">
+                <div class="math-operations__plus math-operations__bar">
+                    <p class="math-operations__plus--p math-operations__p">+</p>
+                </div>
+                <div class="math-operations__minus math-operations__bar">
+                    <p class="math-operations__minus--p math-operations__p">-</p>
+                </div>
+                <div class="math-operations__reset math-operations__bar">
+                    <p class="math-operations__reset--p math-operations__p">C</p>
+                </div>
+                <div class="math-operations__multiplication math-operations__bar">
+                    <p class="math-operations__multiplication--p math-operations__p">*</p>
+                </div>
+                <div class="math-operations__division math-operations__bar">
+                    <p class="math-operations__division--p math-operations__p">/</p>
+                </div>
+                <div class="math-operations__result math-operations__bar">
+                    <p class="math-operations__result--p math-operations__p">=</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/math-operations.js"></script>
+</body>
+</html>

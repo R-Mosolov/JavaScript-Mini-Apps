@@ -1,0 +1,23 @@
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .calculator {
+        /*width: 90%;*/
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .calculator__content {
+        width: 100%;
+        height: auto;
+    }
+
+    .calculator__content--input {
+        width: 100%;
+    }
+
+    .math-operations__bar {
+        height: 150px;
+        width: 33.334%;
+    }
+}
