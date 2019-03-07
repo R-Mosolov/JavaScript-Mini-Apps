@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор UTM-меток</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="page">
+    <div class="position">
+        <div class="generator__box">
+            <div class="container">
+
+                <h1>Генератор UTM-меток</h1>
+
+                <label>Введите адрес сайта</label><br>
+                <input class="generator__input generator__url" type="text" placeholder="http://"><br><br>
+
+                <label>Рекламная площадка (utm_source)</label><br>
+                <input class="generator__input generator__utm-source" type="text" placeholder="Например: google, yandex, vk"><br><br>
+
+                <label>Тип трафика (utm_medium)</label><br>
+                <input class="generator__input generator__utm-medium" type="text" placeholder="Например: cpc, email, banner"><br><br>
+
+                <label>Название кампании (utm_campaign)</label><br>
+                <input class="generator__input generator__utm-campaign" type="text" placeholder="Например: google-search"><br><br>
+
+                <label>Результат: готовая UTM-метка</label><br>
+                <input class="generator__input generator__result--input" type="text"><br><br>
+
+                <button class="generator__result--button" type="button">Создать</button>
+                <!--<div class="generator__result hidden"></div>-->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/generator-utm.js"></script>
+</body>
+</html>
