@@ -1,0 +1,15 @@
+.page { margin: 0; }
+.menu {
+    height: 65px;
+    background-color: gold;
+}
+.screen {
+    height: 100vh;
+    width: 100vw;
+}
+.mr-red {
+    height: calc(100vh - 65px);
+    background-color: red;
+}
+.mr-green { background-color: green; }
+.mr-blue { background-color: blue; }
