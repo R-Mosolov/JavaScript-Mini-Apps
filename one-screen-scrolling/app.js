@@ -1,9 +1,9 @@
-function scrollToGreen() { scrollTo('mr-green'); }
-function scrollToBlue() { scrollTo('mr-blue'); }
-function scrollToRed() { scrollTo('menu'); }
+function scrollToGreen() { scrollTo('green'); }
+function scrollToBlue() { scrollTo('blue'); }
+function scrollToRed() { scrollTo('red'); }
 
 function scrollTo(color) {
-    document.getElementById(`${color}`).scrollIntoView({
+    document.getElementById(`mr-${color}`).scrollIntoView({
         block: 'start',
         behavior: 'smooth'
     });

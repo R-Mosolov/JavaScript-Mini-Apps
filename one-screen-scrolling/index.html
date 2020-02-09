@@ -6,11 +6,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="page">
-    <header class="menu" id="menu" onclick="scrollToGreen()"></header>
+    <header class="menu" id="menu">
+        <div class="menu-container">
+            <div class="menu-item" onclick="scrollToRed()">Mr. Red</div>
+            <div class="menu-item" onclick="scrollToGreen()">Mr. Green</div>
+            <div class="menu-item" onclick="scrollToBlue()">Mr. Blue</div>
+        </div>
+    </header>
     <main class="screens">
-        <div class="screen mr-red" id="mr-red" onclick="scrollToGreen()"></div>
-        <div class="screen mr-green" id="mr-green" onclick="scrollToBlue()"></div>
-        <div class="screen mr-blue" id="mr-blue" onclick="scrollToRed()"></div>
+        <div class="screen mr-red" id="mr-red"></div>
+        <div class="screen mr-green" id="mr-green"></div>
+        <div class="screen mr-blue" id="mr-blue"></div>
     </main>
     <script src="app.js"></script>
 </body>

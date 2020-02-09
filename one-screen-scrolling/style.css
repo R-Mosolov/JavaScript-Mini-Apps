@@ -1,15 +1,28 @@
 .page { margin: 0; }
 .menu {
+    position: fixed;
+    width: 100vw;
     height: 65px;
-    background-color: gold;
+    background-color: black;
+}
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65px;
+}
+.menu-item {
+    font-family: "Open Sans", "Arial", sans-serif;
+    color: white;
+    text-transform: uppercase;
+}
+.menu-item:hover {
+    text-decoration: underline;
 }
 .screen {
-    height: 100vh;
+    height: calc(100vh);
     width: 100vw;
 }
-.mr-red {
-    height: calc(100vh - 65px);
-    background-color: red;
-}
+.mr-red { background-color: red; }
 .mr-green { background-color: green; }
 .mr-blue { background-color: blue; }
