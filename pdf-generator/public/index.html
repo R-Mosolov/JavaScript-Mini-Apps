@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
+    <title>Генератор документа</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -10,34 +11,27 @@
     <img class="banner shadow" src="img/document.jpg">
 
     <h1 class="mt-5 mb-4 container text-center">Форма создания документа</h1>
-    <form class="container border rounded">
-        <div class="d-flex flex-column container">
-            <div class="mt-4">
-                <label class="col-4" for="doc-number">Номер договора</label>
-                <input class="col-7" type="number" placeholder="123" id="doc-number">
-            </div>
-
-            <div class="mt-3">
-                <label class="col-4" for="doc-number">Дата создания договора</label>
-                <input class="col-7" type="date" placeholder="01.01.2020" id="doc-date">
-            </div>
-
-            <div class="mt-3">
-                <label class="col-4" for="doc-number">Название организации</label>
-                <input class="col-7" type="text" placeholder='ПАО "Газпром"' id="company-name">
-            </div>
+    <form class="container border rounded" method="POST" action="pdfMake\pdf">
+        <div class="mt-4">
+            <label class="col-4" for="doc-number">Номер договора</label>
+            <input class="col-7" type="number" placeholder="123" id="doc-number" name="docNumber">
         </div>
 
+        <div class="mt-3">
+            <label class="col-4" for="doc-number">Дата создания договора</label>
+            <input class="col-7" type="date" placeholder="01.01.2020" id="doc-date" name="docDate">
+        </div>
+
+        <div class="mt-3">
+            <label class="col-4" for="doc-number">Название организации</label>
+            <input class="col-7" type="text" placeholder='ПАО "Газпром"' id="company-name" name="companyName">
+        </div>
         <div class="mt-3 mb-4 d-flex justify-content-center">
-            <a class="btn btn-success"
-                onclick="startDownload()"
-                href="../output/document.pdf"
-                download>
+            <button class="btn btn-success"
+                type="submit">
                 Создать файл PDF
-            </a>
+            </button>
         </div>
     </form>
-
-    <script src="../app.js"></script>
 </body>
 </html>
