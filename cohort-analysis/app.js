@@ -24,7 +24,7 @@ console.log('Первый минимум моды: ' + firstModeMin);
 
 console.log('Второй максимум медианы: ' + secondMedianMax);
 
-
+export { data };
 
 
 // Minimum and maximum stylization
