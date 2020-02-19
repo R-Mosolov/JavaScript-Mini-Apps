@@ -3,33 +3,57 @@ import { data } from "./data";
 
 class SimpleComponent extends React.Component {
     render() {
-        function markContrastValues(item, array) {
-            if (item === Math.max(array)) {
+        function markContrastMedian(item) {
+            const max = Math.max(...data.median);
+            const min = Math.min(...data.median);
+
+            if (item === max) {
                 return <li className="list-unstyled bg-success">{item}</li>;
-            } else if (item === Math.min(array)) {
+            } else if (item === min) {
                 return <li className="list-unstyled bg-danger">{item}</li>;
-            } else {
-                return <li className="list-unstyled bg-light">{item}</li>;
             }
+            return <li className="list-unstyled bg-light">{item}</li>;
+        }
+        function markContrastMode(item) {
+            const max = Math.max(...data.mode);
+            const min = Math.min(...data.mode);
+
+            if (item === max) {
+                return <li className="list-unstyled bg-success">{item}</li>;
+            } else if (item === min) {
+                return <li className="list-unstyled bg-danger">{item}</li>;
+            }
+            return <li className="list-unstyled bg-light">{item}</li>;
+        }
+        function markContrastSummary(item) {
+            const max = Math.max(...data.summary);
+            const min = Math.min(...data.summary);
+
+            if (item === max) {
+                return <li className="list-unstyled bg-success">{item}</li>;
+            } else if (item === min) {
+                return <li className="list-unstyled bg-danger">{item}</li>;
+            }
+            return <li className="list-unstyled bg-light">{item}</li>;
         }
 
-        const medianItems = data.median.map(function(itemValue) {
-            return markContrastValues(itemValue, ...data.median);
+        const renderMedian = data.median.map(itemValue => {
+            return markContrastMedian(itemValue);
         });
-        const modeItems = data.mode.map((itemValue) => {
-            return markContrastValues(itemValue, ...data.mode);
+        const renderMode = data.mode.map(itemValue => {
+            return markContrastMode(itemValue);
         });
-        const summaryItems = data.summary.map((itemValue) => {
-            return markContrastValues(itemValue, ...data.summary);
+        const renderSummary = data.summary.map(itemValue => {
+            return markContrastSummary(itemValue);
         });
 
         return (
             <div className="mt-5 border rounded">
-                <h1 className="mt-4 text-center">1. Простой компонент</h1>
+                <h1 className="mt-4 text-center">Таблица значений</h1>
                 <ul className="d-flex justify-content-around">
-                    <div>{medianItems}</div>
-                    <div>{modeItems}</div>
-                    <div>{summaryItems}</div>
+                    <div>{renderMedian}</div>
+                    <div>{renderMode}</div>
+                    <div>{renderSummary}</div>
                 </ul>
             </div>
         );
