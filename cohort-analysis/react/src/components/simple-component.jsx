@@ -8,16 +8,17 @@ class SimpleComponent extends React.Component {
             const min = minValue;
 
             if (item === max) {
-                return <li className="list-unstyled bg-success">{item}</li>;
-            } else if (item === min) {
-                return <li className="list-unstyled bg-danger">{item}</li>;
+                return <tr className="d-flex justify-content-center bg-success">{item}</tr>;
+            }
+            else if (item === min) {
+                return <tr className="d-flex justify-content-center bg-danger">{item}</tr>;
             }
 
-            return <li className="list-unstyled bg-light">{item}</li>;
+            return <tr className="d-flex justify-content-center">{item}</tr>;
         }
 
         const renderMedian = data.median.map(itemValue => markContrastValues(
-                `${itemValue}`, `${Math.max(...data.median)}`, `${Math.min(...data.median)}`)
+            `${itemValue}`, `${Math.max(...data.median)}`, `${Math.min(...data.median)}`)
         );
         const renderMode = data.mode.map(itemValue => markContrastValues(
             `${itemValue}`, `${Math.max(...data.mode)}`, `${Math.min(...data.mode)}`)
@@ -27,13 +28,27 @@ class SimpleComponent extends React.Component {
         );
 
         return (
-            <div className="mt-5 border rounded">
-                <h1 className="mt-4 text-center">Таблица значений</h1>
-                <ul className="d-flex justify-content-around">
-                    <div>{renderMedian}</div>
-                    <div>{renderMode}</div>
-                    <div>{renderSummary}</div>
-                </ul>
+            <div className="mt-3 d-flex justify-content-center">
+                <table className="table w-50 table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col"><span className="d-flex justify-content-center">Медиана</span></th>
+                            <th scope="col"><span className="d-flex justify-content-center">Мода</span></th>
+                            <th scope="col"><span className="d-flex justify-content-center">Размер выборки</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>
+                            {renderMedian}
+                        </td>
+                        <td>
+                            {renderMode}
+                        </td>
+                        <td>
+                            {renderSummary}
+                        </td>
+                    </tbody>
+                </table>
             </div>
         );
     }
