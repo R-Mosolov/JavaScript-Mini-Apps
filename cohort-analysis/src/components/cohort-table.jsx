@@ -1,23 +1,29 @@
 import React from "react";
 import { data } from "./data";
 
-class SimpleComponent extends React.Component {
+class CohortTable extends React.Component {
     render() {
-        function markContrastValues(item, maxValue, minValue) {
-            const max = maxValue;
-            const min = minValue;
-
-            if (item === max) {
-                return <tr className="d-flex justify-content-center bg-success">{item}</tr>;
+        function renderNumber () {
+            let arr = [];
+            for (let i = 1; i <= data.median.length; i++) {
+                arr.push(
+                    <tr className="d-flex justify-content-center">{i}</tr>
+                );
             }
-            else if (item === min) {
+            return arr;
+        }
+
+        function markContrastValues(item, firstMax, firstMin) {
+            if (item === firstMax) {
+                return <tr className="d-flex justify-content-center bg-success">{item}</tr>;
+            } else if (item === firstMin) {
                 return <tr className="d-flex justify-content-center bg-danger">{item}</tr>;
             }
 
             return <tr className="d-flex justify-content-center">{item}</tr>;
         }
 
-        const renderMedian = data.median.map(itemValue => markContrastValues(
+        const renderFirstMedian = data.median.map(itemValue => markContrastValues(
             `${itemValue}`, `${Math.max(...data.median)}`, `${Math.min(...data.median)}`)
         );
         const renderMode = data.mode.map(itemValue => markContrastValues(
@@ -32,14 +38,18 @@ class SimpleComponent extends React.Component {
                 <table className="table w-50 table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col"><span className="d-flex justify-content-center">Медиана</span></th>
-                            <th scope="col"><span className="d-flex justify-content-center">Мода</span></th>
-                            <th scope="col"><span className="d-flex justify-content-center">Размер выборки</span></th>
+                            <th scope="col"><span className="d-flex justify-content-center">№</span></th>
+                            <th scope="col"><span className="d-flex justify-content-center">Median</span></th>
+                            <th scope="col"><span className="d-flex justify-content-center">Mode</span></th>
+                            <th scope="col"><span className="d-flex justify-content-center">Data Summary</span></th>
                         </tr>
                     </thead>
                     <tbody>
+                        <th>
+                            {renderNumber()}
+                        </th>
                         <td>
-                            {renderMedian}
+                            {renderFirstMedian}
                         </td>
                         <td>
                             {renderMode}
@@ -54,4 +64,4 @@ class SimpleComponent extends React.Component {
     }
 }
 
-export default SimpleComponent;
+export default CohortTable;
