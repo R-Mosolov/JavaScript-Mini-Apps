@@ -8,10 +8,20 @@
 <body>
     <h1>Педиатрический расчёт нормы питания для ребёнка до 1 г.</h1>
 
-    <p>1. Когда родился ребёнок?</p>
-    <input type="radio" name="birth-type" id="late">
-    <label for="late">своевременно</label>
-    <input type="radio" name="birth-type" id="early">
-    <label for="early">преждевременно</label>
+    <p>Ребёнок родился преждевременно или нет?*</p>
+    <label for="early-birth">Преждевременно</label>
+    <input type="radio" name="birth-type" id="early-birth" required><br><br>
+    <label for="normal-birth">Своевременно</label>
+    <input type="radio" name="birth-type" id="normal-birth" required><br><br>
+
+    <label for="weight">Сколько ребёнок весил при рождении?*</label>
+    <input type="number" name="weight" id="weight" required><br><br>
+
+    <label for="birth-day">Сколько дней прошло с момента рождения ребёнка?*</label>
+    <input type="number" name="birth-day" id="birth-day" required><br><br>
+
+    <button class="btn btn-success" onclick="calculateDosage()">Рассчитать норму питания</button>
+
+    <script src="../src/app.js"></script>
 </body>
 </html>
