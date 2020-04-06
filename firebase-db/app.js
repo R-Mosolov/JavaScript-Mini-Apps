@@ -1,5 +1,6 @@
 const functions = require('firebase-functions');
 
+
 // Web app's Firebase configuration
 const firebaseConfig = {
     apiKey: functions.config().app.apikey,
