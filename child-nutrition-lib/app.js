@@ -1,9 +1,10 @@
 'use strict';
 
-const DosageCalculator = require('./lib/child-nutrition-calc');
-
+// Initializing the library class
+const DosageCalculator = require('./lib/src/child-nutrition-calc');
 const dosageCalculator = new DosageCalculator();
 
+// Testing class workability
 console.log(dosageCalculator.useZaytseva(3000, 1));
 console.log(dosageCalculator.useFinkelstein(3000, 1));
 console.log(dosageCalculator.useGeibnerCherni(3000, 55));
