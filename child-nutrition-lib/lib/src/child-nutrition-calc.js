@@ -1,14 +1,13 @@
 'use strict';
-
-module.exports = class DosageCalculator {
-
-    // The method calculates a recommended dosage by formula Dr. Zaytseva
-    useZaytseva (weight: number, birthDay: number): number {
-        return  Math.round((weight * 0.02) * birthDay);
+module.exports = /** @class */ (function () {
+    function DosageCalculator() {
     }
-
+    // The method calculates a recommended dosage by formula Dr. Zaytseva
+    DosageCalculator.prototype.useZaytseva = function (weight, birthDay) {
+        return Math.round((weight * 0.02) * birthDay);
+    };
     // The method calculates a recommended dosage by formula Dr. Finkelstein
-    useFinkelstein (weight: number, birthDay: number): number | string {
+    DosageCalculator.prototype.useFinkelstein = function (weight, birthDay) {
         if (weight < 3200) {
             return Math.round(birthDay * 70);
         }
@@ -16,10 +15,9 @@ module.exports = class DosageCalculator {
             return Math.round(birthDay * 80);
         }
         return 'К сожалению, мы не можем Вам ничего порекомендовать.';
-    }
-
+    };
     // The method calculates a recommended dosage by formula Dr. Geibner and Dr. Cherni
-    useGeibnerCherni (weight: number, birthDay: number): number {
+    DosageCalculator.prototype.useGeibnerCherni = function (weight, birthDay) {
         if (birthDay <= 60) {
             return Math.round(weight * 0.2);
         }
@@ -32,10 +30,9 @@ module.exports = class DosageCalculator {
         else {
             return 1000;
         }
-    }
-
+    };
     // The method calculates a recommended dosage by formula Dr. Maslov
-    useMaslov (weight: number, birthDay: number): number | string {
+    DosageCalculator.prototype.useMaslov = function (weight, birthDay) {
         if (birthDay <= 90) {
             return Math.round(weight * 0.12);
         }
@@ -52,28 +49,33 @@ module.exports = class DosageCalculator {
             return 'К сожалению, мы не можем Вам ничего порекомендовать.';
         }
         return 'К сожалению, мы не можем Вам ничего порекомендовать.';
-    }
-
+    };
     // The method calculates a recommended dosage by special, calorage formula
-    useCalorage (weight: number, birthDay: number): number | string {
-        const formulaName = 'По калоражу: ';
-        if (birthDay === 1) return Math.round(Math.round(weight / 1000) * 27.5);
-        if (birthDay === 2) return Math.round(Math.round(weight / 1000) * 40);
-        if (birthDay === 3) return Math.round(Math.round(weight / 1000) * 50);
-        if (birthDay === 4) return Math.round(Math.round(weight / 1000) * 60);
-        if (birthDay === 5) return Math.round(Math.round(weight / 1000) * 70);
-        if (birthDay === 6) return Math.round(Math.round(weight / 1000) * 80);
-        if (birthDay === 10) return Math.round(Math.round(weight / 1000) * 105);
+    DosageCalculator.prototype.useCalorage = function (weight, birthDay) {
+        var formulaName = 'По калоражу: ';
+        if (birthDay === 1)
+            return Math.round(Math.round(weight / 1000) * 27.5);
+        if (birthDay === 2)
+            return Math.round(Math.round(weight / 1000) * 40);
+        if (birthDay === 3)
+            return Math.round(Math.round(weight / 1000) * 50);
+        if (birthDay === 4)
+            return Math.round(Math.round(weight / 1000) * 60);
+        if (birthDay === 5)
+            return Math.round(Math.round(weight / 1000) * 70);
+        if (birthDay === 6)
+            return Math.round(Math.round(weight / 1000) * 80);
+        if (birthDay === 10)
+            return Math.round(Math.round(weight / 1000) * 105);
         return 'К сожалению, мы не можем Вам ничего порекомендовать.';
-    }
-
+    };
     // The method calculates a recommended, one time dosage by special formula
-    useOneTime (weight: number, birthDay: number): number {
+    DosageCalculator.prototype.useOneTime = function (weight, birthDay) {
         return Math.round(3 * weight * birthDay);
-    }
-
+    };
     // The method returns an error and rejection about following work
-    throwRejection (): string {
+    DosageCalculator.prototype.throwRejection = function () {
         return 'К сожалению, мы не можем Вам ничего порекомендовать.';
-    }
-};
+    };
+    return DosageCalculator;
+}());
