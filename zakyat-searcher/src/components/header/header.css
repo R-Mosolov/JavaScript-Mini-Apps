@@ -1,0 +1,30 @@
+.header {
+    height: 50px;
+    background-color: black;
+}
+
+.header .container {
+    width: 1170px;
+}
+
+.header .header-item {
+    margin-top: 15px;
+    margin-left: 10px;
+    color: white;
+}
+
+.header .searcher:hover {
+    cursor: pointer;
+}
+
+.header .search-modal-window {
+    padding-left: 15px;
+    height: 50px;
+    width: 600px;
+    color: black;
+    background-color: white;
+}
+
+.header .search-cleaner {
+    margin-left: -30px;
+}
