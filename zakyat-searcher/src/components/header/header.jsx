@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import Heart from "../../accets/images/header-bar/heart.svg";
 import Search from "../../accets/images/header-bar/search.svg";
@@ -11,81 +11,73 @@ import Clear from "../../accets/images/header-bar/clear.svg";
 import "./header.css";
 import openSearcher from "./services/open-searcher";
 import clearQuery from "./services/clear-query";
-import showAdvices from "./services/show-advices";
-import queryList from "./data/query-list";
+import checkAdvices from "./services/check-advices";
 
-class Header extends Component {
-    constructor() {
-        super();
+function Header() {
+    return (
+        <header className="header">
+            <div className="container">
+                <div className="d-flex justify-content-between">
+                    <div className="d-flex">
+                        <img src={Heart} alt="Heart" />
+                        <p className="header-item">Собрано 6 234 234 ₽ для инвалидов</p>
+                    </div>
 
-        this.state = {
-            query: "",
-            queryList: queryList
-        }
-    }
+                    <div
+                        id="search-button"
+                        className="d-flex ml-2"
+                        onClick={() => openSearcher()}
+                    >
+                        <img src={Search} alt="Search" />
+                        <p className="header-item searcher">Поиск</p>
+                    </div>
 
-    render() {
-        return (
-            <header className="header">
-                <div className="container">
-                    <div className="d-flex justify-content-between">
-                        <div className="d-flex">
-                            <img src={Heart} alt="Heart" />
-                            <p className="header-item">Собрано 6 234 234 ₽ для инвалидов</p>
-                        </div>
+                    <div className="d-flex">
+                        <img src={Vk} alt="Vk" />
+                        <p className="header-item">Вконтакте</p>
+                    </div>
 
-                        <div
-                            id="search-button"
-                            className="d-flex ml-2"
-                            onClick={() => openSearcher()}
-                        >
-                            <img src={Search} alt="Search" />
-                            <p className="header-item searcher">Поиск</p>
-                        </div>
+                    <div className="d-flex">
+                        <img src={Instagram} alt="Instagram" />
+                        <p className="header-item">Instagram</p>
+                    </div>
 
-                        <div className="d-flex">
-                            <img src={Vk} alt="Vk" />
-                            <p className="header-item">Вконтакте</p>
-                        </div>
+                    <div className="d-flex">
+                        <img src={User} alt="User" />
+                        <p className="header-item">Войти</p>
+                    </div>
 
-                        <div className="d-flex">
-                            <img src={Instagram} alt="Instagram" />
-                            <p className="header-item">Instagram</p>
-                        </div>
+                    <div className="d-flex">
+                        <p className="header-item">Рус</p>
+                        <img src={Arrow} alt="Arrow" />
+                    </div>
+                </div>
+            </div>
 
-                        <div className="d-flex">
-                            <img src={User} alt="User" />
-                            <p className="header-item">Войти</p>
-                        </div>
+            {/* This is a hidden search's modal window */}
 
-                        <div className="d-flex">
-                            <p className="header-item">Рус</p>
-                            <img src={Arrow} alt="Arrow" />
-                        </div>
+            <div className="d-flex justify-content-center">
+                <div className="d-flex">
+                    <div className="modal-window-container shadow border-0 rounded">
+                        <input
+                            id="search-modal-window"
+                            className="search-modal-window d-none border-0 rounded"
+                            placeholder="Введите фразу для поиска"
+                            onChange={() => checkAdvices()}
+                        />
                     </div>
                 </div>
 
-                {/* This is a hidden search's modal window */}
-
-                <div className="d-flex justify-content-center">
-                    <input
-                        id="search-modal-window"
-                        className="search-modal-window d-none shadow border-0 rounded"
-                        placeholder="Введите фразу для поиска"
-                        onChange={() => showAdvices()}
-                    />
-
-                    <img
-                        id="search-cleaner"
-                        className="search-cleaner d-none"
-                        src={Clear}
-                        alt="Clear"
-                        onClick={() => clearQuery()}
-                    />
-                </div>
-            </header>
-        );
-    }
+                <img
+                    id="search-cleaner"
+                    className="search-cleaner d-none"
+                    src={Clear}
+                    alt="Clear"
+                    onClick={() => clearQuery()}
+                />
+            </div>
+        </header>
+    );
 }
 
 export default Header;
