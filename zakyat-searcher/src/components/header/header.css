@@ -26,5 +26,7 @@
 }
 
 .header .search-cleaner {
-    margin-left: -30px;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 280px;
 }
