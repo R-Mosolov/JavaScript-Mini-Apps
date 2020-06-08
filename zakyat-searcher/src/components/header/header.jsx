@@ -10,6 +10,8 @@ import Clear from "../../accets/images/header-bar/clear.svg";
 
 import "./header.css";
 import openSearcher from "./services/open-searcher";
+import clearQuery from "./services/clear-query";
+import showAdvices from "./services/show-advices";
 import queryList from "./data/query-list";
 
 class Header extends Component {
@@ -22,32 +24,24 @@ class Header extends Component {
         }
     }
 
-    renderQueries() {
-        const searchModalWindow = document.getElementById(
-            "search-modal-window"
-        ).value;
-        const recommendationList = [];
-
-        this.setState({
-            query: searchModalWindow
-        });
-
-        for (let query of this.state.queryList) {
-            if (query.value === this.state.query) {
-                recommendationList.push(query);
-            }
-        }
-
-        console.log(recommendationList);
-    }
-
-    clearQuery() {
-        let searchModalWindow = document.getElementById(
-            "search-modal-window"
-        );
-
-        searchModalWindow.value = "";
-    }
+    // renderQueries() {
+    //     const searchModalWindow = document.getElementById(
+    //         "search-modal-window"
+    //     ).value;
+    //     const recommendationList = [];
+    //
+    //     this.setState({
+    //         query: searchModalWindow
+    //     });
+    //
+    //     for (let query of this.state.queryList) {
+    //         if (query.value === this.state.query) {
+    //             recommendationList.push(query);
+    //         }
+    //     }
+    //
+    //     console.log(recommendationList);
+    // }
 
     render() {
         return (
@@ -96,8 +90,8 @@ class Header extends Component {
                         id="search-modal-window"
                         className="search-modal-window d-none shadow border-0 rounded"
                         placeholder="Введите фразу для поиска"
-                        value={this.state.query}
-                        onChange={() => this.renderQueries()}
+                        // value={this.state.query}
+                        onChange={() => showAdvices()}
                     />
 
                     <img
@@ -105,7 +99,7 @@ class Header extends Component {
                         className="search-cleaner d-none"
                         src={Clear}
                         alt="Clear"
-                        onClick={() => this.clearQuery()}
+                        onClick={() => clearQuery()}
                     />
                 </div>
             </header>
