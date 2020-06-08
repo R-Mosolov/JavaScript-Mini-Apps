@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import Heart from "../../accets/images/header-bar/heart.svg";
 import Search from "../../accets/images/header-bar/search.svg";
@@ -23,25 +23,6 @@ class Header extends Component {
             queryList: queryList
         }
     }
-
-    // renderQueries() {
-    //     const searchModalWindow = document.getElementById(
-    //         "search-modal-window"
-    //     ).value;
-    //     const recommendationList = [];
-    //
-    //     this.setState({
-    //         query: searchModalWindow
-    //     });
-    //
-    //     for (let query of this.state.queryList) {
-    //         if (query.value === this.state.query) {
-    //             recommendationList.push(query);
-    //         }
-    //     }
-    //
-    //     console.log(recommendationList);
-    // }
 
     render() {
         return (
@@ -85,12 +66,12 @@ class Header extends Component {
                 </div>
 
                 {/* This is a hidden search's modal window */}
+
                 <div className="d-flex justify-content-center">
                     <input
                         id="search-modal-window"
                         className="search-modal-window d-none shadow border-0 rounded"
                         placeholder="Введите фразу для поиска"
-                        // value={this.state.query}
                         onChange={() => showAdvices()}
                     />
 
